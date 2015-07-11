@@ -15,9 +15,9 @@ class RealChatPlugin(WillPlugin):
         print "Responding to cleverbot query"
         try:
             return self.say(cb.ask(phrase), message=message)
-        except Exception as e:
-            print e
-            return self.say("Not able to come up with any real response! (Check logs)", message=message, color='red', alert=True)
+        #except Exception as e:
+        #    print e
+        #    return self.say("Not able to come up with any real response! (Check logs)", message=message, color='red', alert=True)
 
     # Wolfram Alpha Query
     @respond_to("^_(?P<phrase>.*)$")
