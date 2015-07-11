@@ -8,7 +8,7 @@ import os
 import subprocess
 import forecastio
 import random
-FORECAST_APU_JEY = "5825cd12ed3069a9481a10659ca10554"
+FORECAST_API_KEY = "5825cd12ed3069a9481a10659ca10554"
 LINCOLN_LAT = 40.825763
 LINCOLN_LNG = -96.685198
 VOLUME_URL = "http://192.168.30.145:6869"
