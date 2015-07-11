@@ -215,7 +215,7 @@ class ForecastPlugin(WillPlugin):
         # Generate message
         date = datetime.now().strftime("%A %d. %B %Y")
         if not message:
-            self.say("Good morning! Here's the daily weather report.", room=self.available_rooms["Random"], color='green', alert=True)
+            self.say("Good morning! Here's the daily weather report.", room=self.available_rooms["Antitankcrew"], color='green', alert=True)
         intro_message = "Weather Summary for "+str(date)
         return_messages = [intro_message, condition_summary, temperature_avg, min_temp_message, max_temp_message, max_precip_message, humid_message, wind_message, sunrise_message, sunset_message]
         return_string = "\n".join(return_messages)
