@@ -94,13 +94,13 @@ class ForecastPlugin(WillPlugin):
             for alert in alerts:
                 if str(alert.uri) not in current_alerts.keys():
                     if not has_alerted:
-                        self.say("Severe Weather Alert(s) have been detected.", room=self.available_rooms["Random"], color='red', alert=True)
+                        self.say("Severe Weather Alert(s) have been detected.", room=self.available_rooms["Antitankcrew"], color='red', alert=True)
                     alert_say = "Title: %s"\
                                 "Expires: %s"\
                                 "Description: %s"\
                                 "More Information: %s" % (alert.title, alert.expires, alert.description, str(alert.uri))
                     current_alerts[str(alert.uri)] = alert.expires
-                    self.say("/code "+alert_say, room=self.available_rooms["Random"], color='red', notify=True)
+                    self.say("/code "+alert_say, room=self.available_rooms["Antitankcrew"], color='red', notify=True)
                 else:
                     if current_alerts[str(alert.uri)] > time.time():
                         del current_alerts[str(alert.uri)]
@@ -222,7 +222,7 @@ class ForecastPlugin(WillPlugin):
         if message:
             self.say("/quote "+return_string, message=message)
         else:
-            self.say("/quote "+return_string, room=self.available_rooms["Random"])
+            self.say("/quote "+return_string, room=self.available_rooms["Antitankcrew"])
 
     # Manually calls the morning weather summary
     @respond_to("^(?:what|how)(?:'?s| is) the weather( like)? today\??$")
