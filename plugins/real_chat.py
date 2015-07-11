@@ -1,10 +1,11 @@
+from will import settings
 from will.plugin import WillPlugin
 from will.decorators import respond_to, periodic, hear, randomly, route, rendered_template, require_settings
 import cleverbot
 import wolframalpha
 
 cb = cleverbot.Cleverbot()
-wr = wolframalpha.Client("496EX4-7KQ43EA96A")
+wr = wolframalpha.Client(settings.WOLFRAM_API_KEY)
 class RealChatPlugin(WillPlugin):
 
     @respond_to("^\-(?P<phrase>.*)$")
