@@ -149,7 +149,7 @@ Album URI: %s""" % (track_name, track_year, artist, album_name, album_year, albu
         script = "beep -f 130 -l 100 -n -f 262 -l 100 -n -f 330 -l 100 -n -f 392 -l 100 -n -f 523 -l 100 -n -f 660 -l 100 -n -f 784 -l 300 -n -f 660 -l 300 -n -f 146 -l 100 -n -f 262 -l 100 -n -f 311 -l 100 -n -f 415 -l 100 -n -f 523 -l 100 -n -f 622 -l 100 -n -f 831 -l 300 -n -f 622 -l 300 -n -f 155 -l 100 -n -f 294 -l 100 -n -f 349 -l 100 -n -f 466 -l 100 -n -f 588 -l 100 -n -f 699 -l 100 -n -f 933 -l 300 -n -f 933 -l 100 -n -f 933 -l 100 -n -f 933 -l 100 -n -f 1047 -l 400".split(" ")
         subprocess.call(script)
 
-    @respond_to('(?:stop|shut off|turn off)(?:(?:\sthe)?\smusic!*(?:\splease)?)?$')
+    @respond_to('^(?:stop|shut off|turn off)(?:(?:\sthe)?\smusic!*(?:\splease)?)?$')
     def stop_the_beat(self, message):
         """stop: I know how to stop the current music"""
         # Stop current playback
@@ -167,7 +167,7 @@ Album URI: %s""" % (track_name, track_year, artist, album_name, album_year, albu
         self.reply(message, rand_reply)
         self.send_voice_request(rand_reply)
 
-    @respond_to('shut ?up$|sh+!*$')
+    @respond_to('^shut ?up$|sh+!*$')
     def rude_stop_the_beat(self, message):
         """shut up|shh: I know how to shut up!"""
         # Stop current playback
@@ -184,7 +184,7 @@ Album URI: %s""" % (track_name, track_year, artist, album_name, album_year, albu
         rand_reply = random.choice(["Done.", "Got it.", "I'm on it.", "Sure thing."])
         self.reply(message, rand_reply)
 
-    @respond_to('set (?:the )?volume to (?P<volume>[0-9]{1,3})?')
+    @respond_to('^set (?:the )?volume to (?P<volume>[0-9]{1,3})?')
     def set_the_volume(self, message, volume=0):
         """set volume to ___: I know how to set the volume! Limited to 1-100"""
         try:
