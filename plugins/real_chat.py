@@ -8,13 +8,13 @@ cb = cleverbot.Cleverbot()
 wr = wolframalpha.Client(settings.WOLFRAM_API_KEY)
 class RealChatPlugin(WillPlugin):
 
+
     # Cleverbot Query
     @respond_to("^\-(?P<phrase>.*)$")
     def real_chat_cb(self, message, phrase=None):
         """-.*: I know how to hold a conversation!"""
         print "Responding to cleverbot query"
-        try:
-            return self.say(cb.ask(phrase), message=message)
+        return self.say(cb.ask(phrase), message=message)
         #except Exception as e:
         #    print e
         #    return self.say("Not able to come up with any real response! (Check logs)", message=message, color='red', alert=True)
