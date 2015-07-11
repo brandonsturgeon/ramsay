@@ -32,8 +32,8 @@ class RealChatPlugin(WillPlugin):
                 gen_str += (line.text if line.text != None else"")+"\n"
                 gen_str += " \n"
             if gen_str == "":
-                return self.say("/code Couldn't figure out how to respond to that!", message=message, color='red')
-            return self.say("/code "+gen_str, message=message, color='green')
+                return self.say("/quote Couldn't figure out how to respond to that!", message=message, color='red')
+            return self.say("/quote "+gen_str, message=message, color='green')
         except Exception as e:
             print e
             return self.say("Wasn't able to get any data from that query! (Check logs)", message=message, color='red', alert=True)
