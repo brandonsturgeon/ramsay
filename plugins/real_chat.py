@@ -8,6 +8,7 @@ cb = cleverbot.Cleverbot()
 wr = wolframalpha.Client(settings.WOLFRAM_API_KEY)
 class RealChatPlugin(WillPlugin):
 
+    # Cleverbot Query
     @respond_to("^\-(?P<phrase>.*)$")
     def real_chat_cb(self, message, phrase=None):
         """-.*: I know how to hold a conversation!"""
@@ -18,6 +19,7 @@ class RealChatPlugin(WillPlugin):
             print e
             return self.say("Not able to come up with any real response! (Check logs)", message=message, color='red', alert=True)
 
+    # Wolfram Alpha Query
     @respond_to("^_(?P<phrase>.*)$")
     def real_chat_wr(self, message, phrase=None):
         """_.*: I know how to be useful"""
